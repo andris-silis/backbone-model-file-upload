@@ -88,10 +88,10 @@
         options.contentType = false;
 
         // Apply custom XHR for processing status & listen to "progress"
-        model = this;
+        var model = this;
         options.xhr = function() {
           var xhr = $.ajaxSettings.xhr();
-          xhr.upload.addEventListener('progress', this._progressHandler.bind(model), false);
+          xhr.upload.addEventListener('progress', model._progressHandler.bind(model), false);
           return xhr;
         }    
       }
